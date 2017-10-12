@@ -6,6 +6,13 @@ import SearchResults from '../SearchResults/SearchResults.js';
 import Playlist from '../Playlist/Playlist.js';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchResults: [{name: ''}, {artist: ''}, {album: ''}]
+    };
+  }
+  
   render() {
     return (
       <div className="App">
@@ -14,8 +21,8 @@ class App extends Component {
           <div className="App">
             {/*Add a SearchBar component*/}
             <div className="App-playlist">
-              {/*<!-- Add a SearchResults component -->
-              <!-- Add a Playlist component -->*/}
+              <SearchResults searchResults={this.state.searchResults} />
+              {/*<!-- Add a Playlist component -->*/}
             </div>
           </div>
         </div>
