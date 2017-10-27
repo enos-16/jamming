@@ -10,9 +10,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchResults: [{name: ''}, {artist: ''}, {album: ''}],
+      searchResults: [],
       playlistName: 'New Playlist',
-      playlistTracks: [{name: ''}, {artist: ''}, {album: ''}]
+      playlistTracks: []
     };
 
     this.addTrack = this.addTrack.bind(this);
@@ -33,10 +33,7 @@ class App extends Component {
 
   removeTrack(track) {
     let tracks = this.state.playlistTracks;
-    if (tracks.find(savedTrack => savedTrack.id === track.id)) {
-        return;
-    }
-    tracks.push(track);
+    tracks = tracks.filter(currentTrack => currentTrack.id !== track.id);//This is how to remove the tracks
     this.setState({playlistTracks: tracks});
   }
   
@@ -59,8 +56,7 @@ class App extends Component {
       this.setState({
         searchResults: results
       })
-    })
-    //return console.log(term);
+    });
   }
 
   render() {

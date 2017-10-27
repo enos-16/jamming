@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './SearchBar.css';
 
 class SearchBar extends React.Component {
@@ -11,7 +11,7 @@ class SearchBar extends React.Component {
     }
 
     search() {
-        this.props.onSearch(this.props.onSearchTerm);
+        this.props.onSearch(this.state.searchTerm);
     }
 
     handleTermChange(event) {
