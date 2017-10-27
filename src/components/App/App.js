@@ -52,11 +52,17 @@ class App extends Component {
   }
 
   search(term) {
-    Spotify.search(term).then(results => {
+    if(term === '') {
       this.setState({
-        searchResults: results
+        searchResults: []
       })
-    });
+    } else {
+      Spotify.search(term).then(results => {
+        this.setState({
+          searchResults: results
+        })
+      });
+    }
   }
 
   render() {
